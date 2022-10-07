@@ -1,4 +1,4 @@
-obj/Debug/main.o: src/main.cpp /usr/include/stdc-predef.h src/wm.h \
+obj/Release/wm.o: src/wm.cpp /usr/include/stdc-predef.h src/wm.h \
  /usr/include/X11/Xutil.h /usr/include/X11/Xlib.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h \
  /usr/include/features-time64.h \
@@ -27,6 +27,7 @@ obj/Debug/main.o: src/main.cpp /usr/include/stdc-predef.h src/wm.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -50,7 +51,9 @@ obj/Debug/main.o: src/main.cpp /usr/include/stdc-predef.h src/wm.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/include/c++/11/stdlib.h /usr/include/c++/11/cstdlib \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/c++/11/stdlib.h \
+ /usr/include/c++/11/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
@@ -59,7 +62,10 @@ obj/Debug/main.o: src/main.cpp /usr/include/stdc-predef.h src/wm.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h \
  /usr/include/c++/11/bits/std_abs.h /usr/include/c++/11/memory \
  /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/c++/11/bits/functexcept.h \
@@ -106,6 +112,7 @@ obj/Debug/main.o: src/main.cpp /usr/include/stdc-predef.h src/wm.h \
  /usr/include/c++/11/cwchar /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar2.h \
  /usr/include/c++/11/bits/shared_ptr_base.h /usr/include/c++/11/typeinfo \
  /usr/include/c++/11/bits/allocated_ptr.h \
  /usr/include/c++/11/bits/refwrap.h \
@@ -166,8 +173,7 @@ obj/Debug/main.o: src/main.cpp /usr/include/stdc-predef.h src/wm.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
  /usr/include/c++/11/bits/std_mutex.h \
- /usr/include/c++/11/bits/unique_lock.h /usr/include/string.h \
- /usr/include/strings.h
+ /usr/include/c++/11/bits/unique_lock.h
 /usr/include/stdc-predef.h:
 src/wm.h:
 /usr/include/X11/Xutil.h:
@@ -201,6 +207,7 @@ src/wm.h:
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+/usr/include/x86_64-linux-gnu/bits/select2.h:
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
@@ -230,6 +237,8 @@ src/wm.h:
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
 /usr/include/c++/11/stdlib.h:
 /usr/include/c++/11/cstdlib:
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
@@ -242,7 +251,9 @@ src/wm.h:
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 /usr/include/alloca.h:
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
 /usr/include/c++/11/bits/std_abs.h:
 /usr/include/c++/11/memory:
 /usr/include/c++/11/bits/stl_algobase.h:
@@ -301,6 +312,7 @@ src/wm.h:
 /usr/include/wchar.h:
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:
 /usr/include/c++/11/bits/shared_ptr_base.h:
 /usr/include/c++/11/typeinfo:
 /usr/include/c++/11/bits/allocated_ptr.h:
@@ -380,5 +392,3 @@ src/wm.h:
 /usr/include/c++/11/bits/basic_string.tcc:
 /usr/include/c++/11/bits/std_mutex.h:
 /usr/include/c++/11/bits/unique_lock.h:
-/usr/include/string.h:
-/usr/include/strings.h:

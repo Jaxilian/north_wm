@@ -1,4 +1,4 @@
-obj/Debug/main.o: src/main.cpp /usr/include/stdc-predef.h src/wm.h \
+obj/Debug/wm.o: src/wm.cpp /usr/include/stdc-predef.h src/wm.h \
  /usr/include/X11/Xutil.h /usr/include/X11/Xlib.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h \
  /usr/include/features-time64.h \
@@ -166,8 +166,7 @@ obj/Debug/main.o: src/main.cpp /usr/include/stdc-predef.h src/wm.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
  /usr/include/c++/11/bits/std_mutex.h \
- /usr/include/c++/11/bits/unique_lock.h /usr/include/string.h \
- /usr/include/strings.h
+ /usr/include/c++/11/bits/unique_lock.h
 /usr/include/stdc-predef.h:
 src/wm.h:
 /usr/include/X11/Xutil.h:
@@ -380,5 +379,3 @@ src/wm.h:
 /usr/include/c++/11/bits/basic_string.tcc:
 /usr/include/c++/11/bits/std_mutex.h:
 /usr/include/c++/11/bits/unique_lock.h:
-/usr/include/string.h:
-/usr/include/strings.h:

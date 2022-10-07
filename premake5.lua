@@ -8,6 +8,9 @@ project "north_wm"
     language  "C++"   
     targetdir "bin/%{cfg.buildcfg}"
 
+    links { 
+       "X11"
+    }
 
     files { 
         "./src/**.h",
