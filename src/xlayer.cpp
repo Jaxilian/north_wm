@@ -39,6 +39,7 @@ int x_err_cb(Display* display, XErrorEvent* e){
         error_text,
         e->resourceid
     );
+    exit(1);
 
   return 0;
 }
