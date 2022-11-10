@@ -130,6 +130,70 @@ void frame(Window w, bool existed_before){
 
 }
 
+void unframe(Window w) {
+
+  const Window frame = g_clients[w];
+  XUnmapWindow(g_display, frame);
+
+  XReparentWindow(
+      g_display,
+      w,
+      g_root,
+      0, 0);  
+
+  XRemoveFromSaveSet(g_display, w);
+
+  XDestroyWindow(g_display, frame);
+
+  g_clients.erase(w);
+}
+
+////////////////// EVENTS ///////////////////////////////////////////
+
+void on_create_notify(const XCreateWindowEvent& e) {}
+
+void on_destroy_notify(const XDestroyWindowEvent& e) {}
+
+void on_reparent_notify(const XReparentEvent& e) {}
+
+void on_map_notify(const XMapEvent& e) {}
+
+void on_unmap_notify(const XUnmapEvent& e) {
+    if(!g_clients.count(e.window)) return;
+    if(e.event == g_root) return;
+    unframe(e.window);
+}
+
+void on_configure_notify(const XConfigureEvent& e) {}
+
+void on_map_request(const XMapRequestEvent& e) {
+    frame(e.window,false);
+    XMapWindow(g_display, e.window);
+}
+
+void on_configure_request(const XConfigureRequestEvent& e) {
+
+}
+
+void on_button_pressed(const XButtonEvent& e) {
+
+}
+
+void on_button_release(const XButtonEvent& e) {}
+
+void on_motion_notify(const XMotionEvent& e) {
+ 
+}
+
+void on_key_pressed(const XKeyEvent& e) {
+
+}
+
+void on_key_release(const XKeyEvent& e) {}
+
+
+/////////////////////////////////////////////////////////////////////
+
 void xl::init(){
     printf("xlayer loading...\n");
     g_display = XOpenDisplay(NULL);
@@ -191,6 +255,61 @@ void xl::init(){
     XUngrabServer(g_display);
 
     printf("xlayer loaded: [OK]\n");
+}
+
+void xl::listen(){
+    for (;;) {
+        XEvent e;
+        XNextEvent(g_display, &e);
+        printf("xlayer: event recieved \n");
+
+        switch (e.type) {
+        case CreateNotify:
+            on_create_notify(e.xcreatewindow);
+            break;
+        case DestroyNotify:
+            on_destroy_notify(e.xdestroywindow);
+            break;
+        case ReparentNotify:
+            on_reparent_notify(e.xreparent);
+            break;
+        case MapNotify:
+            on_map_notify(e.xmap);
+            break;
+        case UnmapNotify:
+            on_unmap_notify(e.xunmap);
+            break;
+        case ConfigureNotify:
+            on_configure_notify(e.xconfigure);
+            break;
+        case MapRequest:
+            on_map_request(e.xmaprequest);
+            break;
+        case ConfigureRequest:
+            on_configure_request(e.xconfigurerequest);
+            break;
+        case ButtonPress:
+            on_button_pressed(e.xbutton);
+            break;
+        case ButtonRelease:
+            on_button_release(e.xbutton);
+            break;
+        case MotionNotify:
+            // Skip any already pending motion events.
+            while (XCheckTypedWindowEvent(
+                g_display, e.xmotion.window, MotionNotify, &e)) {}
+            on_motion_notify(e.xmotion);
+            break;
+        case KeyPress:
+            on_key_pressed(e.xkey);
+            break;
+        case KeyRelease:
+            on_key_release(e.xkey);
+            break;
+        default:
+        break;
+        }
+    }
 }
 
 void xl::free(){

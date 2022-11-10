@@ -6,6 +6,7 @@
 
 namespace xl{
     void init();
+    void listen();
     void free();
 }
 
