@@ -186,7 +186,9 @@ void on_motion_notify(const XMotionEvent& e) {
 }
 
 void on_key_pressed(const XKeyEvent& e) {
-
+    if ((e.state & Mod1Mask) &&
+      (e.keycode == XKeysymToKeycode(g_display, XK_F4))) {
+    }
 }
 
 void on_key_release(const XKeyEvent& e) {}
