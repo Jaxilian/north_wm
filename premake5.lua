@@ -1,29 +1,13 @@
-workspace "wm"
-configurations { "Debug", "Release" }
-
-project "north_wm"
-    targetdir    "bin/%{cfg.buildcfg}"
-    objdir       "obj/%{cfg.buildcfg}"
-    kind        "ConsoleApp"
-    language  "C++"   
-    targetdir "bin/%{cfg.buildcfg}"
-
-    links { 
-       "X11"
-    }
-
-    files { 
-        "./src/**.h",
-        "./src/**.hpp",
-        "./src/**.c",
-        "./src/**.cpp"
-    }
-
-    filter "configurations:Debug"
-        defines { "DEBUG" }
-        symbols  "On"
-
-    filter  "configurations:Release"
-        defines  { "NDEBUG" }
-        symbols  "Off"
+solution "wm"
+    configurations { "Core" }
+    
+    project "wm"
+        language "C++"
+        targetdir "bin"
+        objdir "obj"
+        kind "ConsoleApp"
+        files { "src/**.c", "src/**.h", "src/**.cpp", "src/**.hpp" }
+        includedirs {"src"}
         optimize "On"
+        libdirs { os.findlib("X11") }
+        links {"X11"}

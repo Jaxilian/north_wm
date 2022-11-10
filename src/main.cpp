@@ -1,17 +1,12 @@
-#include "wm.h"
-#include <string.h>
-Display* display;
+#include "xlayer.hpp"
 
 
 
-int main(int argc, char** argv){
-    wm_alloc();
-    
-    for(int i = 0; i < argc; i++){
-        if(strcmp(argv[i], "-d")){
-            wm_set_debug(true);
-        }
-    }
-    wm_listen();
-    wm_free();
+
+
+
+int main(){
+    xl::init();
+    xl::free();
+    return 0;
 }
