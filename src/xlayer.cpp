@@ -133,7 +133,7 @@ void frame(Window w, bool existed_before){
 void xl::init(){
     printf("xlayer loading...\n");
     g_display = XOpenDisplay(NULL);
-
+    g_root = DefaultRootWindow(g_display);
 
     if(!g_display){
         printf("failed to load xlayer due to: No Display found!\n");
