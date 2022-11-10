@@ -167,6 +167,7 @@ void xl::init(){
     XSetErrorHandler(x_err_cb);
     XGrabServer(g_display);
 
+    printf("xlayer: fetching window tree... ");
     Window returned_root, returned_parent;
     Window* top_level_windows;
     unsigned int num_top_level_windows;
@@ -178,10 +179,14 @@ void xl::init(){
         &top_level_windows,
         &num_top_level_windows
     );
+    printf("success\n");
 
+    printf("xlayer: framing %d windows\n", num_top_level_windows);
     for (unsigned int i = 0; i < num_top_level_windows; ++i) {
+        printf("xlayer: framing window %d\n", i);
         frame(top_level_windows[i], true);
     }
+    printf("done!\n");
     XFree(top_level_windows);
     XUngrabServer(g_display);
 
